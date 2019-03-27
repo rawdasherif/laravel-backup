@@ -89,6 +89,7 @@ Route ::patch('/gym/{gym}','GymsController@update')
 Route::DELETE('/gym/{gym}','GymsController@destroy')
 ->name('gym.destroy');
 //________________cities_______________________//
+
 Route ::get('/city','CityController@index')
 ->name('city.index');
 
@@ -97,16 +98,36 @@ Route ::get('/city/get_citydata','CityController@get_citydata');
 Route ::get('/city/create','CityController@create')
 ->name('city.create');
 
-Route ::post('/city','GymsController@store')
+Route ::post('/city','CityController@store')
 ->name('city.store');
 
-// Route ::get('/city/{city}/edit','CityController@edit')
-// ->name('city.edit');
+Route ::get('/city/{city}/edit','CityController@edit')
+->name('city.edit');
 
-// Route ::patch('/city/{city}','CityController@update')
-// ->name('city.update');
+Route ::patch('/city/{city}','CityController@update')
+->name('city.update');
 
-// Route::DELETE('/city/{city}','CityController@destroy');
+Route::DELETE('/city/{city}','CityController@destroy');
 
+//...................Training Sessions................//
 
+Route ::get('/trainingsession','TrainingSessionsController@index')
+->name('trainingsession.index');
+
+Route ::get('/trainingsession/get_trainingsessiondata','TrainingSessionsController@get_trainingsessiondata');
+
+Route ::get('/trainingsession/create','TrainingSessionsController@create')
+->name('trainingsession.create');
+
+Route ::post('/trainingsession','TrainingSessionsController@store')
+->name('trainingsession.store');
+
+Route ::get('/trainingsession/{trainingsession}/edit','TrainingSessionsController@edit')
+->name('trainingsession.edit');
+
+Route ::patch('/trainingsession/{trainingsession}','TrainingSessionsController@update')
+->name('trainingsession.update');
+
+Route::DELETE('/trainingsession/{trainingsession}','TrainingSessionsController@destroy')
+->name('trainingsession.destroy');
 

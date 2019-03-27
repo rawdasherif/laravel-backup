@@ -30,10 +30,11 @@
     </div>
 
     <div class="form-group">
-    <label for="disabledTextInput"> Country :</label>
+    <label for="disabledTextInput"> Choose Country:</label>
     <select  id="exampleFormControlSelect1" name="country_id">
-    <option>egypt</option>
-    
+    @foreach ($Countries as $Country)
+    <option value="{{$Country->id}}">{{$Country->name}}</option>
+      @endforeach
     </select>
     </div>
  

@@ -2,7 +2,7 @@
 
 @section('content') 
  
-<a class="btn btn-info" href="{{route('city.create')}}">Create New city</a> 
+<a class="btn btn-info" href="{{route('trainingsession.create')}}">Create New Training Session</a> 
 <br><br>
          <div class="container" style="width:100%">
             <table class="table table-bordered" id="table" >
@@ -10,9 +10,11 @@
                   <tr>
                      <th>Id</th>
                      <th>Name</th>
-                     <th>revenue</th>
-                     <th>Country_id</th>
-                     <th>Actions</th>
+                     <th>Start At</th>
+                     <th>End At</th>
+                     <th>Gym</th>
+                     <th>Coach</th>
+                    
                   </tr>
                </thead>
             </table>
@@ -23,16 +25,19 @@
                processing: true,
                serverSide: true, 
                deferRender: true,  
-               ajax: 'http://127.0.0.1:8000/city/get_citydata',         
+               ajax: 'http://127.0.0.1:8000/trainingsession/get_trainingsessiondata',         
                columns: [
 
                         { data: 'id', name: 'id' },
                         { data: 'name', name: 'name' },
-                        { data: 'revenue', name: 'revenue' },  
-                        { data: 'country', name: 'country' },                        
+                        { data: 'start_at', name: 'start_at' },  
+                        { data: 'finish_at', name: 'finish_at' },
+                        { data: 'gym_id', name: 'gym_id' },
+                        { data: 'coach_id', name: 'coach_id' },
+
                         { data: "actions",
                             "render": function(data, type, row) {
-                            return '<a  href="city/'+row.id+'/edit" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>    <form method="POST" action="city/'+row.id+'">@csrf   {{ method_field('DELETE')}}<button type="submit" onclick="return myFunction();" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i></button></form>'                                
+                              return '<a  href="trainingsession/'+row.id+'/edit" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>    <form method="POST" action="trainingsession/'+row.id+'">@csrf   {{ method_field('DELETE')}}<button type="submit" onclick="return myFunction();" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i></button></form>'                        
                                ;}     
                         }
                      ]
@@ -40,7 +45,7 @@
               });
                      //confirm deleting 
                      function myFunction(){
-                     var agree = confirm("Are you sure you want to delete this City?");
+                     var agree = confirm("Are you sure you want to delete this Training Session?");
                         if(agree == true){
                            return true
                            }

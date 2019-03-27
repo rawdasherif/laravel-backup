@@ -10,4 +10,5 @@ class Coach extends Model
         'name',
         'gender',
     ];
+ 
 }

@@ -29,15 +29,15 @@
       <label for="disabledTextInput">Revenue:</label>
       <input type="number" name="revenue" id="disabledTextInput" class="form-control"  value ="{{$city->revenue}}">
     </div>
-
     <div class="form-group">
-      <label for="disabledTextInput">Country</label>
-      <select class="form-control" name="country_id">
-                @foreach($countries as $country)
-                    <option value="{{$country->id}}">{{$country->name}}</option>
-                @endforeach
-      </select>
+    <label for="disabledTextInput"> Choose Country:</label>
+    <select  id="exampleFormControlSelect1" name="country_id">
+    @foreach ($Countries as $Country)
+    <option value="{{$Country->id}}">{{$Country->name}}</option>
+      @endforeach
+    </select>
     </div>
+    
 
    
  

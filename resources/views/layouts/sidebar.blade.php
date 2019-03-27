@@ -52,6 +52,13 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{route('trainingsession.index')}}" class="nav-link">
+              <p>
+              Training Sessions
+              </p>
+            </a>
+          </li>
          
         </ul>
       </nav>
