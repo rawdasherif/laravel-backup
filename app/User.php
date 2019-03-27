@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,9 +19,29 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
+    // protected $fillable = [
+    //     'name', 'email', 'password','National_id','gender','gym_id',
+    // ];
     protected $fillable = [
-        'name', 'email', 'password','National_id','gender','gym_id',
+        'name',
+         'email',
+          'password',
+          'National_id',
+          'role',
+          'gym_id',
+          'city_id',
+          'profile_img'
     ];
+    public function gym()
+    {
+        
+        return $this->belongsTo(Gym::class);
+    }
+    public function city()
+    {
+        
+        return $this->belongsTo(City::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.

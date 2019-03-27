@@ -75,6 +75,13 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{route('userweb.index')}}" class="nav-link">
+              <p>
+              Users
+              </p>
+            </a>
+          </li>
 
          
         </ul>

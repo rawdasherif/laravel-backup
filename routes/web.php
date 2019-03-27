@@ -191,3 +191,22 @@ Route::DELETE('/package/{package}','PackageController@destroy')
 ->name('package.destroy');
 
 Route ::get('/package/get_packagedata','PackageController@get_packagedata');
+//_________________________Users___________________________//
+Route ::get('/userweb','UsersController@index')
+->name('userweb.index');
+Route::get('/userweb/create', 'UsersController@create')
+->name('userweb.create');
+
+Route::post('/userweb','UsersController@store')
+->name('userweb.store');
+Route ::get('/userweb/{userweb}/edit','UsersController@edit')
+->name('userweb.edit');
+
+Route::patch('/userweb/{userweb}','UsersController@update')
+->name('userweb.update');
+
+Route::DELETE('/userweb/{user}','UsersController@destroy')
+->name('userweb.destroy');
+
+Route ::get('/userweb/get_userwebdata','UsersController@get_userwebdata');
+//__________
