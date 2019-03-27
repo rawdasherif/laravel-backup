@@ -26,10 +26,6 @@
     </div>
 
     <div class="form-group">
-      <label for="disabledTextInput">Revenue:</label>
-      <input type="number" name="revenue" id="disabledTextInput" class="form-control"  value ="{{$city->revenue}}">
-    </div>
-    <div class="form-group">
     <label for="disabledTextInput"> Choose Country:</label>
     <select  id="exampleFormControlSelect1" name="country_id">
     @foreach ($Countries as $Country)

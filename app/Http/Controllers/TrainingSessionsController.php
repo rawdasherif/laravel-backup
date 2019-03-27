@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\TrainingSession\StoreTrainingSessionRequest ;
+use App\Http\Requests\TrainingSession\UpdateTrainingSessionRequest ;
 use App\TrainingSession;
 use App\Gym;
 use App\Coach;
@@ -26,7 +27,7 @@ class TrainingSessionsController extends Controller
             'Gyms' => $Gyms,'Coaches'=>$Coaches,
         ]);
     }
-    public function store(TrainingSession $request)
+    public function store(StoreTrainingSessionRequest $request)
     {
         TrainingSession::create(request()->all());
         return redirect()->route('trainingsession.create');
@@ -49,7 +50,7 @@ class TrainingSessionsController extends Controller
           ]);
     }
 
-    public function update(Request  $request,TrainingSession $trainingsession )
+    public function update(UpdateTrainingSessionRequest  $request,TrainingSession $trainingsession )
     {
       $trainingsession->name = request()->all()['name'];
       $trainingsession->start_at = request()->all()['start_at'];

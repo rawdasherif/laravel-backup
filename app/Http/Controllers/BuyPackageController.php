@@ -34,12 +34,21 @@ class BuyPackageController extends Controller
     
     public function update(Request  $request,Package $buy_package)
     {
-         $user_id=request()->all()['user_id']; 
+        $user_id=request()->all()['user_id']; 
         $Remaning_session=DB::select('select Remaning_session from users where id = :id', ['id' => $user_id]);
-        //$Remaning_session=$Remaning_session+$buy_package['sessions_no'];
-        dd($Remaning_session);
+        $Remaning_session=$Remaning_session[0]->Remaning_session+$buy_package['sessions_no'];
+        $user=User :: where('id',$user_id)->first();
+        $user->Remaning_session=$Remaning_session;
+        $user->save();
 
+        $gym_id=request()->all()['gym_id']; 
+        $revenue=DB::select('select revenue from gyms where id = :id', ['id' => $gym_id]);
+        $revenue=$revenue[0]->revenue+$buy_package['price'];
+        $gym=Gym :: where('id',$gym_id)->first();
+        $gym->revenue=$revenue;
+        $gym->save();
 
+        return redirect()->route('buy_package.index');
 
     }
     

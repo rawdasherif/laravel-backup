@@ -18,16 +18,12 @@
 
 <form action="{{route('city.store')}}" method='POST'>
 @csrf
-  <<fieldset >
+  <fieldset >
     <div class="form-group">
       <label for="disabledTextInput">Name :</label>
       <input type="text" name="name" id="disabledTextInput" class="form-control" placeholder="Enter your Name">
     </div>
 
-    <div class="form-group">
-      <label for="disabledTextInput">Revenue :</label>
-      <input type="number" name="revenue" id="disabledTextInput" class="form-control" >
-    </div>
 
     <div class="form-group">
     <label for="disabledTextInput"> Choose Country:</label>

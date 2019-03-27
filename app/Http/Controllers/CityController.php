@@ -27,7 +27,7 @@ class CityController extends Controller
     public function store(City $request)
     {
         City::create(request()->all());
-        return redirect()->route('city.create');
+        return redirect()->route('city.index');
     }
 
     public function get_citydata(){
@@ -35,11 +35,9 @@ class CityController extends Controller
     }
 
 
-  
     public function edit( $city)
     {
-        $city=City::find($city);
-       
+        $city=City::find($city);   
         $Countries =Country ::all();
         return view ('city.edit',[
             'city'=>$city,
@@ -49,16 +47,12 @@ class CityController extends Controller
 
     public function update(Request  $request,City $city )
     {
-      $city->name = request()->all()['name'];
-      $city->revenue = request()->all()['revenue'];
-     
-    
+      $city->name = request()->all()['name'];  
       $city->save();
         return redirect()->route('city.index');
 
     }
-
-      
+    
     public function destroy(City $city)
     {
          $city->delete();

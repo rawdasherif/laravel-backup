@@ -18,9 +18,8 @@
 
 <form action="{{route('trainingsession.store')}}" method='POST'>
 @csrf
-{{ method_field('PATCH')}}
- 
-<<fieldset >
+
+<fieldset >
     <div class="form-group">
       <label for="disabledTextInput">Name :</label>
       <input type="text" name="name" id="disabledTextInput" class="form-control" placeholder="Enter your Name">

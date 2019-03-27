@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Coach;
+namespace App\Http\Requests\TrainingSession;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCoachRequest extends FormRequest
+class UpdateTrainingSessionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,6 +25,8 @@ class StoreCoachRequest extends FormRequest
     {
         return [
             'name'=>'required|min:3',
+            'start_at'=>'required',
+            'finish_at'=>'required'        
         ];
     }
 }
