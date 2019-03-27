@@ -1,0 +1,47 @@
+@extends('layouts.admin')
+
+@section('content') 
+<br>
+<a  class="btn btn-info btn-sm" style="float: right;" href="{{route('city.index')}}" >Back</a>
+<br>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<br>
+
+<form action="/city/{{$city->id }}" method='POST'>
+@csrf
+{{ method_field('PATCH')}}
+  <fieldset >
+    <div class="form-group">
+      <label for="disabledTextInput">Name :</label>
+      <input type="text" name="name" id="disabledTextInput" class="form-control"  value ="{{$city->name}}">
+    </div>
+
+    <div class="form-group">
+      <label for="disabledTextInput">Revenue:</label>
+      <input type="number" name="revenue" id="disabledTextInput" class="form-control"  value ="{{$city->revenue}}">
+    </div>
+
+    <div class="form-group">
+      <label for="disabledTextInput">Country</label>
+      <select class="form-control" name="country_id">
+                @foreach($countries as $country)
+                    <option value="{{$country->id}}">{{$country->name}}</option>
+                @endforeach
+      </select>
+    </div>
+
+   
+ 
+    <button type="submit" class="btn btn-success">Add City</button>
+  </fieldset>
+</form>
+@endsection 

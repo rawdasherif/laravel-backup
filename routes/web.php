@@ -17,17 +17,27 @@ Route::get('/', function () {
 });
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/coaches', 'CoachesController@index')
-->name('coaches.index');
+Route::get('/coach', 'CoachController@index')
+->name('coach.index');
 
-Route::get('/coaches/create', 'CoachesController@create')
-->name('coaches.create');
+Route::get('/coach/create', 'CoachController@create')
+->name('coach.create');
 
-Route::post('/coaches','CoachesController@store')
-->name('coaches.store');
+Route::post('/coach','CoachController@store')
+->name('coach.store');
+Route ::get('/coach/{coach}/edit','CoachController@edit')
+->name('coach.edit');
 
-Route::get('/coaches/{coach}','CoachesController@show')
-->name('coaches.show');
+Route ::patch('/coach/{coach}','CoachController@update')
+->name('coach.update');
+
+Route::DELETE('/coach/{coach}','CoachController@destroy')
+->name('coach.destroy');
+
+Route ::get('/coach/get_coachdata','CoachController@get_coachdata');
+
+Route::get('/coach/{coach}','CoachController@show')
+->name('coach.show');
 // --------------------------
 Route ::get('/citymanager','CityManagerController@index')
 ->name('citymanager.index');
@@ -78,7 +88,25 @@ Route ::patch('/gym/{gym}','GymsController@update')
 
 Route::DELETE('/gym/{gym}','GymsController@destroy')
 ->name('gym.destroy');
+//________________cities_______________________//
+Route ::get('/city','CityController@index')
+->name('city.index');
 
+Route ::get('/city/get_citydata','CityController@get_citydata');
+
+Route ::get('/city/create','CityController@create')
+->name('city.create');
+
+Route ::post('/city','GymsController@store')
+->name('city.store');
+
+// Route ::get('/city/{city}/edit','CityController@edit')
+// ->name('city.edit');
+
+// Route ::patch('/city/{city}','CityController@update')
+// ->name('city.update');
+
+// Route::DELETE('/city/{city}','CityController@destroy');
 
 
 

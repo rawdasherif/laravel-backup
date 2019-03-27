@@ -164,6 +164,7 @@ return [
         'Webpatser\Countries\CountriesServiceProvider',
         Yajra\DataTables\DataTablesServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+      
 
         /*
          * Package Service Providers...

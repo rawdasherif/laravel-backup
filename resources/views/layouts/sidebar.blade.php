@@ -39,9 +39,16 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{route('coach.index')}}" class="nav-link">
               <p>
               Coaches
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{route('city.index')}}" class="nav-link">
+              <p>
+              Cities
               </p>
             </a>
           </li>
