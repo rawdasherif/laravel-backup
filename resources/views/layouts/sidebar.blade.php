@@ -45,7 +45,7 @@
               </p>
             </a>
           </li>
-<<<<<<< HEAD
+
 
           <li class="nav-item has-treeview">
             <a href="{{route('buy_package.index')}}" class="nav-link">
@@ -53,7 +53,7 @@
             </a>
           </li>
 
-=======
+
           <li class="nav-item has-treeview">
             <a href="{{route('city.index')}}" class="nav-link">
               <p>
@@ -61,7 +61,6 @@
               </p>
             </a>
           </li>
-<<<<<<< HEAD
           <li class="nav-item has-treeview">
             <a href="{{route('trainingsession.index')}}" class="nav-link">
               <p>
@@ -69,9 +68,14 @@
               </p>
             </a>
           </li>
-=======
->>>>>>> 6f59d6a7cba2d8581fb78835d38a764622829eac
->>>>>>> 017aede4e9368b6080641b2054a5373211240596
+          <li class="nav-item has-treeview">
+            <a href="{{route('package.index')}}" class="nav-link">
+              <p>
+              Packages
+              </p>
+            </a>
+          </li>
+
          
         </ul>
       </nav>
