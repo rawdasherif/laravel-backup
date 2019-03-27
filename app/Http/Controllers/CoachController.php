@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\Coach\StoreCoachRequest;
+use App\Http\Requests\Coach\UpdateCoachRequest;
+
 use Yajra\Datatables\Datatables;
 use App\Coach;
 
@@ -26,7 +28,7 @@ class CoachController extends Controller
     public function store(StoreCoachRequest $request)
     {
         Coach::create(request()->all());
-        return redirect()->route('coach.create');
+        return redirect()->route('coach.index');
     }
 
     public function get_coachdata(){
@@ -42,7 +44,7 @@ class CoachController extends Controller
           ]);
     }
 
-    public function update(Request  $request,Coach $coach )
+    public function update(UpdateCoachRequest  $request,Coach $coach )
     {
       $coach->name = request()->all()['name'];
       $coach->gender = request()->all()['gender'];

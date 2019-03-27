@@ -15,21 +15,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/coach', 'CoachController@index')
 ->name('coach.index');
 
 Route::get('/coach/create', 'CoachController@create')
 ->name('coach.create');
 
-<<<<<<< HEAD
-Route::post('/coaches', 'CoachesController@store')
-->name('coaches.store');
-
-Route::get('/coaches/{coach}', 'CoachesController@show')
-->name('coaches.show');
-=======
 Route::post('/coach','CoachController@store')
 ->name('coach.store');
 Route ::get('/coach/{coach}/edit','CoachController@edit')
@@ -45,7 +36,6 @@ Route ::get('/coach/get_coachdata','CoachController@get_coachdata');
 
 Route::get('/coach/{coach}','CoachController@show')
 ->name('coach.show');
->>>>>>> 6f59d6a7cba2d8581fb78835d38a764622829eac
 // --------------------------
 Route ::get('/citymanager', 'CityManagerController@index')
 ->name('citymanager.index');
@@ -142,7 +132,6 @@ Route ::get('/trainingsession/create','TrainingSessionsController@create')
 Route ::post('/trainingsession','TrainingSessionsController@store')
 ->name('trainingsession.store');
 
-<<<<<<< HEAD
 Route ::get('/trainingsession/{trainingsession}/edit','TrainingSessionsController@edit')
 ->name('trainingsession.edit');
 
@@ -151,20 +140,34 @@ Route ::patch('/trainingsession/{trainingsession}','TrainingSessionsController@u
 
 Route::DELETE('/trainingsession/{trainingsession}','TrainingSessionsController@destroy')
 ->name('trainingsession.destroy');
-=======
-<<<<<<< HEAD
-//---------------------------
+//------------------------City--------------------
+Route ::get('/city','CityController@index')
+->name('city.index');
+
+Route ::get('/city/get_citydata','CityController@get_citydata');
+
+Route ::get('/city/create','CityController@create')
+->name('city.create');
+
+Route ::post('/city','CityController@store')
+->name('city.store');
+
+Route ::get('/city/{city}/edit','CityController@edit')
+->name('city.edit');
+
+Route ::patch('/city/{city}','CityController@update')
+->name('city.update');
+
+Route::DELETE('/city/{city}','CityController@destroy');
+
+//----------------------- buy buckage ------------
 Route ::get('/buy_package', 'BuyPackageController@index')
 ->name('buy_package.index');
-=======
-// Route::DELETE('/city/{city}','CityController@destroy');
->>>>>>> 6f59d6a7cba2d8581fb78835d38a764622829eac
 
 Route ::get('/buy_package/get_packagedata', 'BuyPackageController@get_packagedata');
 
 Route ::get('/buy_package/{buy_package}/edit', 'BuyPackageController@edit')
 ->name('buy_package.edit');
->>>>>>> 017aede4e9368b6080641b2054a5373211240596
 
 Route ::patch('/buy_package/{buy_package}', 'BuyPackageController@update')
 ->name('buy_package.update');

@@ -20,20 +20,20 @@
 @csrf
 {{ method_field('PATCH')}}
  
-<<fieldset >
+<fieldset >
     <div class="form-group">
       <label for="disabledTextInput">Name :</label>
-      <input type="text" name="name" id="disabledTextInput" class="form-control" placeholder="Enter your Name">
+      <input type="text" name="name" id="disabledTextInput" class="form-control" value="{{$trainingsession->name}}">
     </div>
 
     <div class="form-group">
       <label for="disabledTextInput">Start At:</label>
-      <input type="date" name="start_at" id="disabledTextInput" class="form-control" >
+      <input type="date" name="start_at" id="disabledTextInput" class="form-control" value="{{$trainingsession->start_at}}" >
     </div>
 
     <div class="form-group">
       <label for="disabledTextInput">Finish At:</label>
-      <input type="date" name="finish_at" id="disabledTextInput" class="form-control" >
+      <input type="date" name="finish_at" id="disabledTextInput" class="form-control" value="{{$trainingsession->finish_at}}" >
     </div>
 
     <div class="form-group">

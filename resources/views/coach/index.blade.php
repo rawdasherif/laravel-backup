@@ -39,7 +39,7 @@
               });
                      //confirm deleting 
                      function myFunction(){
-                     var agree = confirm("Are you sure you want to delete this Gym?");
+                     var agree = confirm("Are you sure you want to delete this Coach?");
                         if(agree == true){
                            return true
                            }

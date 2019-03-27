@@ -26,9 +26,13 @@
     </div>
 
     <div class="form-group">
-      <label for="disabledTextInput">Gender :</label>
-      <input type="text" name="gender" id="disabledTextInput" class="form-control"  value ="{{$coach->gender}}">
+    <label for="disabledTextInput"> Gender:</label>
+    <select  id="exampleFormControlSelect1" name="gender">
+    <option>male</option>
+    <option>female</option>  
+    </select>
     </div>
+
 
  
     <button type="submit" class="btn btn-success">Add Coach</button>

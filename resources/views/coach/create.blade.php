@@ -18,15 +18,18 @@
 
 <form action="{{route('coach.store')}}" method='POST'>
 @csrf
-  <<fieldset >
+  <fieldset >
     <div class="form-group">
       <label for="disabledTextInput">Name :</label>
       <input type="text" name="name" id="disabledTextInput" class="form-control" placeholder="Enter your Name">
     </div>
 
     <div class="form-group">
-      <label for="disabledTextInput">Gender :</label>
-      <input type="text" name="gender" id="disabledTextInput" class="form-control" >
+    <label for="disabledTextInput"> Gender:</label>
+    <select  id="exampleFormControlSelect1" name="gender">
+    <option>male</option>
+    <option>female</option>  
+    </select>
     </div>
 
  
