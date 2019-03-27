@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCityIdColumnToUsersTable extends Migration
+class CreateCoachesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class AddCityIdColumnToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->unsignedbigInteger('city_id')->nullable();
-            $table->foreign('city_id')->references('id')->on('cities');
-
+        Schema::create('coaches', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->timestamps();
+            $table->string('name',100);
         });
     }
 
@@ -27,8 +27,6 @@ class AddCityIdColumnToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('_coaches');
     }
 }

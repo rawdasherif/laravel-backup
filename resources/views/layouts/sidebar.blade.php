@@ -45,6 +45,13 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="{{route('buy_package.index')}}" class="nav-link">
+                Buy Buckage
+            </a>
+          </li>
+
          
         </ul>
       </nav>

@@ -17,8 +17,8 @@ class CreateGymsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->date('created_at');
-            $table->string('cover_image');
-            $table->integer('revenue');
+            $table->string('cover_image')->nullable();
+            $table->integer('revenue')->default(0);
             $table->unsignedbigInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
         });
