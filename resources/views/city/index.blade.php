@@ -11,6 +11,7 @@
                      <th>Id</th>
                      <th>Name</th>
                      <th>Actions</th>
+                   
                   </tr>
                </thead>
             </table>
@@ -25,7 +26,8 @@
                columns: [
 
                         { data: 'id', name: 'id' },
-                        { data: 'name', name: 'name' },                                      
+                        { data: 'name', name: 'name' },  
+                 
                         { data: "actions",
                             "render": function(data, type, row) {
                             return '<a  href="city/'+row.id+'/edit" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>    <form method="POST" action="city/'+row.id+'">@csrf   {{ method_field('DELETE')}}<button type="submit" onclick="return myFunction();" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i></button></form>'                                
