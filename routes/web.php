@@ -84,6 +84,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::DELETE('/gymmanager/{gymmanager}','GymManagerController@destroy')
     ->name('gymmanager.destroy');
 
+    //ban and unban
+
+    Route::get('/Revoke/{id}', 'GymManagerController@revoke');
+
+    Route::get('/Ban/{id}', 'GymManagerController@ban');
+
     //---------------------------
     Route ::get('/gym', 'GymsController@index')
     ->name('gym.index');
@@ -200,6 +206,7 @@ Route::group(['middleware' => 'auth'], function () {
     //_________________________Users___________________________//
     Route ::get('/userweb','UsersController@index')
     ->name('userweb.index');
+
     Route::get('/userweb/create', 'UsersController@create')
     ->name('userweb.create');
 
@@ -216,7 +223,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route ::get('/userweb/get_userwebdata','UsersController@get_userwebdata');
 
+    //-------------revenue-----------------
+    Route ::get('/revenue','RevenueController@index')
+    ->name('revenue.index');
+
 });
+
 
 //__________
 Auth::routes();

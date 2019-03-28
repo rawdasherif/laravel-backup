@@ -11,12 +11,12 @@ use Spatie\Permission\Traits\HasRoles;
 use Cog\Contracts\Ban\Bannable as BannableContract;
 use Cog\Laravel\Ban\Traits\Bannable;
 
+
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class User extends Authenticatable implements MustVerifyEmail,BannableContract
 {
-    use Notifiable, HasApiTokens,HasRoles;
-    use Bannable;
+    use Notifiable, HasApiTokens,HasRoles,Bannable;
     /**
      * The attributes that are mass assignable.
      *
@@ -36,13 +36,8 @@ class User extends Authenticatable implements MustVerifyEmail,BannableContract
           'profile_img',
           'banned_at'
     ];
-    protected $dates = [
-        'banned_at'
-    ];
-    public function shouldApplyBannedAtScope()
-    {
-        return true;
-    }
+
+
     public function gym()
     {
         

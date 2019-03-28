@@ -13,6 +13,7 @@
                      <th>National Id</th>
                      <th>Gender</th>
                      <th>Actions</th>
+                     <th>Ban/Revoke</th>
                   </tr>
                </thead>
             </table>
@@ -33,7 +34,21 @@
                             "render": function(data, type, row) {
                             return '<a  href="gymmanager/'+row.id+'/edit" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>    <form method="POST" action="gymmanager/'+row.id+'">@csrf   {{ method_field('DELETE')}}<button type="submit" onclick="return myFunction();" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i></button></form>'                                
                                ;}     
-                        }
+                        },
+                        { data: "actions",
+                            "render": function(data, type, row) {
+                                console.log(row.banned_at);
+                                if (!row.banned_at )
+                                    {
+                            
+                                return '<a href="Ban/'+row.id+'" class="btn btn-xs btn-primary" title="Ban">Ban</a>'                                
+                                    }
+                                 else{
+                                    return '<a href="Revoke/'+row.id+'" class="btn btn-xs btn-primary" title="Ban">UnBan</a>'                                 
+                                 }   
+                              ;}     
+                        },  
+   
                      ]
                   });
               });

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
+
 class GymManagerController extends Controller
 {
     public function index(){
@@ -73,5 +74,17 @@ class GymManagerController extends Controller
          $gymmanager->delete();
          return redirect()->route('gymmanager.index');
     } 
+
+    public function ban(User $id){
+
+        $id->ban();
+        return redirect()->route('gymmanager.index');
+    }
+
+    public function revoke(User $id){
+        $id->unban();
+        return redirect()->route('gymmanager.index');
+    }
+
 }
 
