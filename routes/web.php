@@ -235,3 +235,38 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//-----------
+
+
+Route::group(['middleware' =>  'logs-out-banned-user'], function () {
+    Route ::get('/gymmanager', 'GymManagerController@index')
+    ->name('gymmanager.index');
+
+    Route ::get('gymmanager/get_gymmanagerdata','GymManagerController@get_gymmanagerdata');
+
+    Route ::get('gymmanager/create', 'GymManagerController@create')
+    ->name('gymmanager.create');
+
+    Route ::post('/gymmanager', 'GymManagerController@store')
+    ->name('gymmanager.store');
+
+    Route ::get('/gymmanager/{gymmanager}/edit','GymManagerController@edit')
+    ->name('gymmanager.edit');
+
+    Route ::patch('/gymmanager/{gymmanager}','GymManagerController@update')
+    ->name('gymmanager.update');
+
+    Route::DELETE('/gymmanager/{gymmanager}','GymManagerController@destroy')
+    ->name('gymmanager.destroy');
+
+    //ban and unban
+
+    Route::get('/Revoke/{id}', 'GymManagerController@revoke');
+
+    Route::get('/Ban/{id}', 'GymManagerController@ban');
+    Route::get('/home', function () {
+        return view('home');
+    });
+
+});
+
