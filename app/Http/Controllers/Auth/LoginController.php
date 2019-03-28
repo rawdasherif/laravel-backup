@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\Request;
+
 class LoginController extends Controller
 {
     /*
@@ -36,4 +38,25 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function authenticated(Request $request, $user)
+        {
+          $user=auth()->user()['role'];
+           
+          if ($user=="admin")
+           {
+            auth()->user()->assignRole('admin');
+           }
+           elseif($user=="city_manager")
+           {
+            auth()->user()->assignRole('citymanager');
+           }
+           elseif($user=="gym_manager")
+           {
+            auth()->user()->assignRole('gymanager');
+           }
+
+        return redirect('/home');
+        }
+
 }

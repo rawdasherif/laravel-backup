@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Gym;
+use Hash;
 use App\Http\Requests\User\StoreUserRequest ;
 use App\Http\Requests\User\UpdateUserRequest ;
 use Yajra\Datatables\Datatables;
@@ -36,6 +37,7 @@ class GymManagerController extends Controller
         $user->gender = $data['gender'];
         $user->National_id = $data['Nationalid'];
         $user->gym_id = $data['gym_id'];
+        $user->password = Hash::make($data['password']);
         $user->role = 'gym_manager';    
         $user->save();
         return redirect()->route('gymmanager.index');

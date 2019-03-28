@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Country;
 use App\City;
+use Hash;
 use App\Http\Requests\User\StoreUserRequest ;
 use App\Http\Requests\User\UpdateUserRequest ;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +35,9 @@ class CityManagerController extends Controller
     public function store(StoreUserRequest $request){
         $data=$request->all();
         $user=User::create($data);
+        $user->password = Hash::make($data['password']);
         $user->city_id = $data['city_id'];   
+        $user->gender = $data['gender']; 
         $user->role = 'city_manager';   
         $user->save();
         return redirect()->route('citymanager.index');
