@@ -103,7 +103,7 @@
 
           @role('admin|citymanager|gymanager')
           <li class="nav-item has-treeview">
-            <a href="{{route('userweb.index')}}" class="nav-link">
+            <a href="{{route('revenue.index')}}" class="nav-link">
               <p>
               Revenues
               </p>

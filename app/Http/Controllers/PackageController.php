@@ -27,7 +27,7 @@ class PackageController extends Controller
     public function store(StorePackageRequest $request)
     {
         Package::create(request()->all());
-        return redirect()->route('package.create');
+        return redirect()->route('package.index');
     }
 
     public function get_packagedata(){

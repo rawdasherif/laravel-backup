@@ -31,15 +31,16 @@
     <label for="exampleFormControlFile1">Upload Cover Image :</label>
     <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1" >
    </div>
-   
+   @if(auth()->user()['role'] !='city_manager') 
    <div class="form-group">
-    <label for="disabledTextInput"> Choose Country:</label>
+    <label for="disabledTextInput"> Choose City:</label>
     <select  id="exampleFormControlSelect1" name="city_id">
     @foreach ($cities as $city)
     <option value="{{$city->id}}">{{$city->name}}</option>
       @endforeach
     </select>
     </div>
+ @endif
  
     <button type="submit" class="btn btn-success">Add Gym Manager</button>
   </fieldset>

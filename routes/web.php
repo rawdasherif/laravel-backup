@@ -215,9 +215,14 @@ Route::group(['middleware' => 'auth'], function () {
     ->name('userweb.destroy');
 
     Route ::get('/userweb/get_userwebdata','UsersController@get_userwebdata');
+
+    //------------------revenue-----------------------
+      Route::get('/revenue', 'RevenueController@index')
+      ->name('revenue.index');
 });
 
 //__________
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
