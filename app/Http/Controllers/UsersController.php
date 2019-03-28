@@ -29,7 +29,10 @@ class UsersController extends Controller
     }
     public function store(StoreUserRequest $request)
     {
-        User::create(request()->all());
+       $user= User::create(request()->all());
+       $user->role='user';
+       $user->save();
+
         return redirect()->route('userweb.create');
     }
 

@@ -10,7 +10,7 @@
                   <tr>
                      <th>Id</th>
                      <th>Name</th>
-                     <th>Price</th>
+                     <th>Price $</th>
                      <th>Sessions Number</th>
                      <th>actions</th>
                     

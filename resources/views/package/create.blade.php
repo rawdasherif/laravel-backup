@@ -25,7 +25,7 @@
     </div>
 
     <div class="form-group">
-      <label for="disabledTextInput">price :</label>
+      <label for="disabledTextInput">price $:</label>
       <input type="number" name="price" id="disabledTextInput" class="form-control" >
     </div>
     <div class="form-group">

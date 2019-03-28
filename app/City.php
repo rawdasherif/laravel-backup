@@ -10,6 +10,7 @@ class City extends Model
         'name',
         'revenue',
         'country_id',
+        'country_name'
     ];
     public function country()
    {
