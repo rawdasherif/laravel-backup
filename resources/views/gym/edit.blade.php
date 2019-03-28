@@ -27,10 +27,21 @@
 
     <div class="form-group">
       <label for="disabledTextInput">Created At:</label>
-      <input type="date" name="created_at" id="disabledTextInput" class="form-control"  value ="{{$gym->created_at}}">
+      <input type="date" name="created_at" id="disabledTextInput" class="form-control" value="{{$gym->created_at}}" >
       <br>
       <label style="color:red; ">This Gym create at :  {{$gym->created_at}}</label>
     </div>
+
+    @if(auth()->user()['role'] !='city_manager') 
+   <div class="form-group">
+    <label for="disabledTextInput"> Choose City:</label>
+    <select  id="exampleFormControlSelect1" name="city_id">
+    @foreach ($cities as $city)
+    <option value="{{$city->id}}">{{$city->name}}</option>
+      @endforeach
+    </select>
+    </div>
+ @endif
 
     <div class="form-group">
     <label for="exampleFormControlFile1">Upload Cover Image :</label>

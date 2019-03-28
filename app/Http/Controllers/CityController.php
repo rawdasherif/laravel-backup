@@ -13,7 +13,8 @@ class CityController extends Controller
     public function index()
     {
         return view('city.index', [
-            'city' => City::all(),
+            'city' => City::with('Country')->get(),
+                        
         ]);
      }
     public function create()
@@ -31,6 +32,7 @@ class CityController extends Controller
     }
 
     public function get_citydata(){
+
         return Datatables::of(City::query())->make(true);
     
        

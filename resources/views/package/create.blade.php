@@ -3,8 +3,6 @@
 @section('content') 
 <br>
 <a  class="btn btn-info btn-sm" style="float: right;" href="{{route('package.index')}}" >Back</a>
-<br>
-
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -18,7 +16,7 @@
 
 <form action="{{route('package.store')}}" method='POST'>
 @csrf
-  <<fieldset >
+  <fieldset >
     <div class="form-group">
       <label for="disabledTextInput">Name :</label>
       <input type="text" name="name" id="disabledTextInput" class="form-control" placeholder="Enter package Name">
@@ -30,11 +28,7 @@
     </div>
     <div class="form-group">
       <label for="disabledTextInput">Sessions Number :</label>
-      <select type="number"  id="exampleFormControlSelect1" name="sessions_no">
-      <option>5</option>
-      <option>10</option>
-      <option>20</option>
-   
+      <input type="number" id="disabledTextInput" class="form-control" name="sessions_no" >
     </select>
     </div>
 

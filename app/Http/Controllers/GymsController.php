@@ -20,23 +20,11 @@ class GymsController extends Controller
     }
 
     public function create(){
-       
-        // if(auth()->user()['role']=='city_manager'){
-        //     $user_id=auth()->user()['id'];
-        //     $city_id=DB::select('select * from users where id = :id', ['id' =>$user_id ]);
-        //     $city_id=$city_id[0]->city_id;
-        //     $cities=City::find($city_id);
-        //     $cities = json_decode (json_encode ($cities), FALSE);
-        //     return view('gym.create',[
-        //         'cities'=>$cities,
-        //     ]);
-        // }
-        // else{
+
             $cities=City::all();
         return view('gym.create',[
             'cities'=>$cities,
         ]);
-        //}
     }
 
     public function store(Request $request){
@@ -60,18 +48,34 @@ class GymsController extends Controller
 
     public function edit($gym)
     {
+
+        $cities=City::all();
         $gym=Gym::find($gym);
         return view ('gym.edit',[
             'gym'=>$gym,
+            'cities'=>$cities,
           ]);
     }
 
     public function update(Request  $request,Gym $gym )
     {
-      $gym->name = request()->all()['name'];
-      $gym->created_at = request()->all()['created_at'];
-      $gym->save();
-        return redirect()->route('gym.index');
+        $data=$request->all();
+        if(auth()->user()['role']=='city_manager')
+        {
+            $user_id=auth()->user()['id'];
+            $city_id=DB::select('select city_id from users where id = :id', ['id' =>$user_id ]);
+            $city_id=$city_id[0]->city_id;
+            $user->city_id=$city_id;
+            $user->save();  
+            return redirect()->route('gym.index');
+        }
+        else{
+            $gym->name = request()->all()['name'];
+            $gym->created_at = request()->all()['created_at'];
+            $gym->city_id = request()->all()['city_id'];
+            $gym->save();
+              return redirect()->route('gym.index');
+        }
 
     }
 

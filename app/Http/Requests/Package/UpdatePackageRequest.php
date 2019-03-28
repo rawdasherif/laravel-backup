@@ -25,8 +25,8 @@ class UpdatePackageRequest extends FormRequest
     {
         return [
             'name'=>'required|min:3',
-            'price'=>'required|min:3',
-            'sessions_no'=>'required|min:1'
+            'price'=>'required',
+            'sessions_no'=>'required',
         ];
     }
 }
