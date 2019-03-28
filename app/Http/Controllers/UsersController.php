@@ -37,7 +37,8 @@ class UsersController extends Controller
     }
 
     public function get_userwebdata(){
-        return Datatables::of(User::query())->make(true);
+        $results = DB::select('select * from users where role = :role', ['role' => 'user']);
+        return Datatables::of($results)->make(true);
     }
 
 

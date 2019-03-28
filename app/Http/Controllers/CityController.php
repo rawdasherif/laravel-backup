@@ -13,7 +13,7 @@ class CityController extends Controller
     public function index()
     {
         return view('city.index', [
-            'city' => City::all()
+            'city' => City::all(),
         ]);
      }
     public function create()

@@ -164,6 +164,8 @@ return [
         'Webpatser\Countries\CountriesServiceProvider',
         Yajra\DataTables\DataTablesServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Cog\Laravel\Ban\Providers\BanServiceProvider::class,
+
       
 
         /*

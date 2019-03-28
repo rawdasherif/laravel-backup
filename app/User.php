@@ -7,13 +7,16 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
+use Cog\Contracts\Ban\Bannable as BannableContract;
+use Cog\Laravel\Ban\Traits\Bannable;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail,BannableContract
 {
-    use Notifiable, HasApiTokens;
-
+    use Notifiable, HasApiTokens,HasRoles;
+    use Bannable;
     /**
      * The attributes that are mass assignable.
      *
@@ -30,8 +33,16 @@ class User extends Authenticatable implements MustVerifyEmail
           'role',
           'gym_id',
           'city_id',
-          'profile_img'
+          'profile_img',
+          'banned_at'
     ];
+    protected $dates = [
+        'banned_at'
+    ];
+    public function shouldApplyBannedAtScope()
+    {
+        return true;
+    }
     public function gym()
     {
         

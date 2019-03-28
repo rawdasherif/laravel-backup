@@ -54,10 +54,9 @@
     <div class="form-group">
     <label for="disabledTextInput"> Choose User Role :</label>
     <select  id="exampleFormControlSelect1" name="role">
-   
-    <option >admin</option>
-    <option >city_manager</option>
-    <option >gym_manager</option>
+ 
+
+    
     <option >user</option>
       
     </select>
