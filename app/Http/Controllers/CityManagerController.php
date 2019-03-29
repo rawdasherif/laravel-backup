@@ -20,8 +20,10 @@ class CityManagerController extends Controller
     }
 
     public function get_citymanagerdata(){
-        $results = DB::select('select * from users where role = :role', ['role' => 'city_manager']);
-        return Datatables::of($results)->make(true);
+        //$results = DB::select('select * from users where role = :role', ['role' => 'city_manager']);
+        //return Datatables::of($results)->make(true);
+        //return datatables()->of(User::with('City'))->toJson();
+        return datatables()->of(User::where('role','city_manager')->get())->toJson();
  
     }
 

@@ -12,6 +12,8 @@
                      <th>Name</th>
                      <th>Start At</th>
                      <th>End At</th>
+                     <th>City</th>
+                     <th>Coach</th>
                      <th>Actions</th>
                   </tr>
                </thead>
@@ -29,6 +31,8 @@
                            { data: 'name', name: 'name' },
                            { data: 'start_at', name: 'start_at' },  
                            { data: 'finish_at', name: 'finish_at' },
+                           { data: 'city.name', name: 'city.name' },  
+                           { data: 'coach.name', name: 'coach.name' },
                            { data: "actions",
                               "render": function(data, type, row) {
                                  return '<a  href="trainingsession/'+row.id+'/edit" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>    <form method="POST" action="trainingsession/'+row.id+'">@csrf   {{ method_field('DELETE')}}<button type="submit" onclick="return myFunction();" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i></button></form>'                        

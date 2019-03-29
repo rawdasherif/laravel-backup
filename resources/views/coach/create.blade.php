@@ -26,9 +26,9 @@
 
     <div class="form-group">
     <label for="disabledTextInput"> Gender:</label>
-    <select  id="exampleFormControlSelect1" name="gender">
-    <option>male</option>
-    <option>female</option>  
+    <select type="text" id="exampleFormControlSelect1" name="gender">
+    <option >male</option>
+    <option >female</option>  
     </select>
     </div>
 

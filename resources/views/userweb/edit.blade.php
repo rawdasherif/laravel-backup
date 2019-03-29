@@ -52,30 +52,11 @@
     <div class="form-group">
     <label for="disabledTextInput"> Choose User Role :</label>
     <select  id="exampleFormControlSelect1" name="role">
-   
-   
-  
+     
     <option >user</option>
       
     </select>
 
-    <div class="form-group">
-    <label for="disabledTextInput"> Choose Gym:</label>
-    <select  id="exampleFormControlSelect1" name="gym_id">
-    @foreach ($Gyms as $Gym)
-    <option value="{{$Gym->id}}">{{$Gym->name}}</option>
-      @endforeach
-    </select>
-    </div>
-    <div class="form-group">
-    <label for="disabledTextInput"> Choose City:</label>
-    <select  id="exampleFormControlSelect1" name="city_id">
-    @foreach ($Cities as $City)
-    <option value="{{$City->id}}">{{$City->name}}</option>
-      @endforeach
-    </select>
-    </div>
-  
     <button type="submit" class="btn btn-success">Add User</button>
   </fieldset>
 

@@ -33,8 +33,8 @@ class CityController extends Controller
 
     public function get_citydata(){
 
-        return Datatables::of(City::query())->make(true);
-    
+        return datatables()->of(City::with('Country'))->toJson();
+        
        
        
     }

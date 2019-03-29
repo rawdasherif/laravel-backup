@@ -46,7 +46,7 @@
     </div>
     <div class="form-group">
     <label for="disabledTextInput"> Choose Coach:</label>
-    <select  id="exampleFormControlSelect1" name="coach_id" multiple size="5">
+    <select  id="exampleFormControlSelect1" name="coach_id" >
     @foreach ($Coaches as $Coach)
     <option value="{{$Coach->id}}">{{$Coach->name}}</option>
       @endforeach

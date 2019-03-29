@@ -34,7 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail,BannableContract
           'gym_id',
           'city_id',
           'profile_img',
-          'banned_at'
+          'banned_at',
     ];
     protected $dates = [
         'banned_at'

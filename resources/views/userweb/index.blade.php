@@ -15,6 +15,7 @@
                      <th>Email</th>
                      <th>Password</th>
                      <th>National ID</th>
+                     <th>Profile Image</th>
                      <th>Actions</th>
                   </tr>
                </thead>
@@ -34,6 +35,10 @@
                            { data: 'email', name: 'email' },  
                            { data: 'password', name: 'password' },
                            { data: 'National_id', name: 'National_id' },
+                           { data: "profile_img",
+                              function (data) {
+                                    return '<img src="data:/storage/images;base64,{0},'+data+'">';   
+                           },
                            { data: "actions",
                               "render": function(data, type, row) {
                                  return '<a  href="userweb/'+row.id+'/edit" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>    <form method="POST" action="userweb/'+row.id+'">@csrf   {{ method_field('DELETE')}}<button type="submit" onclick="return myFunction();" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i></button></form>'                        

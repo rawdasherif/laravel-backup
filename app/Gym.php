@@ -11,7 +11,15 @@ class Gym extends Model
         'revenue',
         'created_at',
         'cover_image',
+        'city_id',
     ];
+
+    public function city()
+    {
+     
+     return $this->belongsTo(City::class);
+
+     }
 
     protected $dateFormat = 'Y-m-d';
 }

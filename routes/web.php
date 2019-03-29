@@ -200,6 +200,8 @@ Route::group(['middleware' => 'auth'], function () {
     //_________________________Users___________________________//
     Route ::get('/userweb','UsersController@index')
     ->name('userweb.index');
+
+
     Route::get('/userweb/create', 'UsersController@create')
     ->name('userweb.create');
 
@@ -218,7 +220,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-//__________
+//__________revenue--------------------
+Route ::get('/revenue','RevenueController@index')
+    ->name('revenue.index');
+  //  _____________________________________________
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

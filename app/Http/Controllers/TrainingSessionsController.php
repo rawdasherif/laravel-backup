@@ -34,7 +34,7 @@ class TrainingSessionsController extends Controller
     }
 
     public function get_trainingsessiondata(){
-        return Datatables::of(TrainingSession::query())->make(true);
+        return datatables()->of(TrainingSession::with('Gym','Coach'))->toJson();
     }
 
 

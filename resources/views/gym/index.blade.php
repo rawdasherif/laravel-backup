@@ -11,6 +11,7 @@
                      <th>Id</th>
                      <th>Name</th>
                      <th>Created At</th>
+                     <th>City</th>
                      <th>Actions</th>
                   </tr>
                </thead>
@@ -27,7 +28,8 @@
 
                         { data: 'id', name: 'id' },
                         { data: 'name', name: 'name' },
-                        { data: 'created_at', name: 'created_at' },                          
+                        { data: 'created_at', name: 'created_at' },     
+                        { data: 'city.name', name: 'city.name' },                      
                         { data: "actions",
                             "render": function(data, type, row) {
                             return '<a  href="gym/'+row.id+'/edit" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>    <form method="POST" action="gym/'+row.id+'">@csrf   {{ method_field('DELETE')}}<button type="submit" onclick="return myFunction();" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i></button></form>'                                

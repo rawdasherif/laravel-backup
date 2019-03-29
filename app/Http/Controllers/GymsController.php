@@ -16,7 +16,7 @@ class GymsController extends Controller
     }
 
     public function get_gymdata(){
-        return Datatables::of(Gym::query())->make(true);
+        return datatables()->of(Gym::with('City'))->toJson();
     }
 
     public function create(){

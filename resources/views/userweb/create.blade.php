@@ -17,7 +17,7 @@
 @endif
 <br>
 
-<form action="{{route('userweb.store')}}" method='POST'>
+<form action="{{route('userweb.store')}}" method='POST' >
 @csrf
 
 <fieldset >
@@ -27,7 +27,7 @@
     </div>
 
     <div class="form-group">
-      <label for="disabledTextInput">Date Of Biryh</label>
+      <label for="disabledTextInput">Date Of Birth</label>
       <input type="date" name="date_of_birth" id="disabledTextInput" class="form-control" >
     </div>
 
@@ -47,36 +47,18 @@
       <input type="number" name="National_id" id="disabledTextInput" class="form-control"  >
     </div>
 
-    <form action="/action_page.php">
+    <div  class="form-group" action="/userweb">
     Select a profile image: <input type="file" name="profile_img"><br><br>
-    </form>
+    </div>
 
     <div class="form-group">
     <label for="disabledTextInput"> Choose User Role :</label>
-    <select  id="exampleFormControlSelect1" name="role">
- 
 
-    
+    <select  id="exampleFormControlSelect1" name="role">
     <option >user</option>
       
     </select>
-
-    <div class="form-group">
-    <label for="disabledTextInput"> Choose Gym:</label>
-    <select  id="exampleFormControlSelect1" name="gym_id">
-    @foreach ($Gyms as $Gym)
-    <option value="{{$Gym->id}}">{{$Gym->name}}</option>
-      @endforeach
-    </select>
-    </div>
-    <div class="form-group">
-    <label for="disabledTextInput"> Choose City:</label>
-    <select  id="exampleFormControlSelect1" name="city_id">
-    @foreach ($Cities as $City)
-    <option value="{{$City->id}}">{{$City->name}}</option>
-      @endforeach
-    </select>
-    </div>
+   
   
     <button type="submit" class="btn btn-success">Add User</button>
   </fieldset>
