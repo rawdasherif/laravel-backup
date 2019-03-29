@@ -90,6 +90,17 @@
           </li>
           @endrole
 
+          @role('admin|citymanager|gymanager')
+          <li class="nav-item has-treeview">
+            <a href="{{route('sale.index')}}" class="nav-link">
+              <p>
+              Packages history
+              </p>
+            </a>
+          </li>
+          @endrole
+
+
           @role('admin')
           <li class="nav-item has-treeview">
             <a href="{{route('userweb.index')}}" class="nav-link">

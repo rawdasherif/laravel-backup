@@ -274,5 +274,12 @@ Route::group(['middleware' =>  'logs-out-banned-user'], function () {
         return view('home');
     });
 
+    
+    Route ::get('/sale', 'SaleController@index')
+    ->name('sale.index');
+
+    Route ::get('/sale/get_saledata','SaleController@get_saledata');
+    
+
 });
 
