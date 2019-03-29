@@ -16,15 +16,13 @@ use Yajra\Datatables\Datatables;
 class CityManagerController extends Controller
 {
     public function index(){
-        return view('citymanager.index');
+       return view('citymanager.index');
+       
     }
 
     public function get_citymanagerdata(){
-        //$results = DB::select('select * from users where role = :role', ['role' => 'city_manager']);
-        //return Datatables::of($results)->make(true);
-        //return datatables()->of(User::with('City'))->toJson();
-        return datatables()->of(User::where('role','city_manager')->get())->toJson();
- 
+        return datatables()->of(User::with('City')->where('role','city_manager')->get())->toJson();
+    
     }
 
     public function create(){

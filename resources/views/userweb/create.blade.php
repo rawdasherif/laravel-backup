@@ -17,7 +17,7 @@
 @endif
 <br>
 
-<form action="{{route('userweb.store')}}" method='POST' >
+<form action="{{route('userweb.store')}}" method='POST' enctype="multipart/form-data" >
 @csrf
 
 <fieldset >
@@ -48,7 +48,8 @@
     </div>
 
     <div  class="form-group" action="/userweb">
-    Select a profile image: <input type="file" name="profile_img"><br><br>
+    Select a profile image:
+     <input type="file" name="profile_img"><br><br>
     </div>
 
     <div class="form-group">
@@ -59,7 +60,7 @@
       
     </select>
    
-  
+  <br>
     <button type="submit" class="btn btn-success">Add User</button>
   </fieldset>
 </form>

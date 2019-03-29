@@ -25,8 +25,12 @@ class PackageController extends Controller
         ]);
     }
     public function store(StorePackageRequest $request)
-    {
-        Package::create(request()->all());
+    { 
+        $data=$request->all();
+        
+        $Package=Package::create($request->all());
+        $Package->price = $data['price']*100;
+        $Package->save();
         return redirect()->route('package.index');
     }
 

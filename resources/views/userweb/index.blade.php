@@ -13,7 +13,6 @@
                      <th>Name</th>
                      <th>Date Of Birth</th>
                      <th>Email</th>
-                     <th>Password</th>
                      <th>National ID</th>
                      <th>Profile Image</th>
                      <th>Actions</th>
@@ -33,11 +32,11 @@
                            { data: 'name', name: 'name' },
                            { data: 'date_of_birth', name: 'ate_of_birth' },
                            { data: 'email', name: 'email' },  
-                           { data: 'password', name: 'password' },
                            { data: 'National_id', name: 'National_id' },
                            { data: "profile_img",
-                              function (data) {
-                                    return '<img src="data:/storage/images;base64,{0},'+data+'">';   
+                              "render":function (data, type, row) {
+                                    return '<img width="30px" src="/storage/'+row.profile_img+'">'
+                                    ;}   
                            },
                            { data: "actions",
                               "render": function(data, type, row) {

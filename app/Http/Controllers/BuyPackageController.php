@@ -7,7 +7,7 @@ use App\User;
 use App\Gym;
 use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\Datatables;
-
+use Stripe\Stripe;
 
 class BuyPackageController extends Controller
 {
@@ -47,6 +47,19 @@ class BuyPackageController extends Controller
         $gym=Gym :: where('id',$gym_id)->first();
         $gym->revenue=$revenue;
         $gym->save();
+
+        Stripe::setApiKey("sk_test_01KGr7o8QH5AP7PQndnvdChW00iqUXU4RS");
+        $token = $request->stripeToken;
+        //$package=Package::find($request->package_id);
+        //$currency = $package->price;
+    
+        $charge = \Stripe\Charge::create([
+            'amount' => 333,
+            'currency' => 'usd',
+            'description' => 'Example charge',
+            'source' => $token,
+        ]);
+            
 
         return redirect()->route('buy_package.index');
 

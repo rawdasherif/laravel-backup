@@ -20,6 +20,7 @@
     </select>
 
   </div>
+  @role('city_manager|admin')
   <div class="form-group">
     <label for="exampleInputPassword1">Choose Gym: </label>
     <select  id="exampleFormControlSelect1" name="gym_id">
@@ -28,7 +29,19 @@
       @endforeach
     </select>
   </div>
+  @endrole
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_0ybeJtUNQwtYglVVps4q24bu00QhnyrD2v"
+    data-amount="999"
+    data-name="Demo Site"
+    data-description="Example charge"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+  </script>
+  <br>
+  <br>
+  <button type="submit" class="btn btn-success">Submit</button>
 </form>
 @endsection 

@@ -12,7 +12,7 @@
                      <th>Email</th>
                      <th>National Id</th>
                      <th>Gender</th>
-                     <!-- <th>City</th> -->
+                      <th>City</th>
                      <th>Actions</th>
                   </tr>
                </thead>
@@ -30,7 +30,7 @@
                         { data: 'email', name: 'email' },  
                         { data: 'National_id', name: 'National_id' },   
                         { data: 'gender', name: 'gender' },  
-                        //{data:'city.name',name:'city.name'}                     
+                        {data:  'city.name',name:'city.name'},                     
                         { data: "actions",
                             "render": function(data, type, row) {
                             return '<a  href="citymanager/'+row.id+'/edit" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>    <form method="POST" action="citymanager/'+row.id+'">@csrf   {{ method_field('DELETE')}}<button type="submit" onclick="return myFunction();" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i></button></form>'                                

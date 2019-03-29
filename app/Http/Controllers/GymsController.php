@@ -82,7 +82,14 @@ class GymsController extends Controller
       
     public function destroy(Gym $gym)
     {
+        $session_gymid=$gym->id;
+        $session=DB::select('select * from training_sessions where gym_id = :gym_id', ['gym_id' =>$session_gymid ]);
+        if(!$session){
          $gym->delete();
+        }
+        else{
+            return redirect()->back()->with('alert', 'You can not delete this gym');
+        }
          return redirect()->route('gym.index');
     } 
 }

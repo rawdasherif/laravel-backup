@@ -39,21 +39,18 @@ class UsersController extends Controller
     }
     public function store(Request $request)
     {  
-       //dd($request);StoreUserRequest
-       $user= User::create(request()->all());
+        $requestdata=$request->all();
+        if($request->hasFile('profile_img')){
+            $requestdata['profile_img']=$request->file('profile_img')
+            ->store('uploads');
+    }
+     
+       $user= User::create($requestdata);
        $user->role='user';
        $user->save();
 
-    //    $image=request()->profile_img;
-    //    //dd($image);
-    //  //dd(request()->profile_img);
-    //    //$imageName = time().'.'.request()->profile_img;
-    //    //request()->profile_img->move(public_path('storage/images'), $imageName);
-    //  $new_name=rand() . '.' . $image->getClientOriginalExtension();
-    //     $image=move(public_path("storage/images"),$new_name);
-    //     dd($image);
-    // //    return back()->with('succes','Image Uploaded Successfuly');
-       return redirect()->route('userweb.create');
+
+       return redirect()->route('userweb.index');
     }
 
     public function get_userwebdata(){

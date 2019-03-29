@@ -16,6 +16,7 @@
         "laravel/tinker": "^1.0",
         "pragmarx/countries": "^0.5.9",
         "spatie/laravel-permission": "^2.36",
+        "stripe/stripe-php": "^6.31",
         "webpatser/laravel-countries": "dev-master",
         "yajra/laravel-datatables": "^1.0",
         "yajra/laravel-datatables-oracle": "~9.0"

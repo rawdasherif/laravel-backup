@@ -184,6 +184,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route ::patch('/buy_package/{buy_package}', 'BuyPackageController@update')
     ->name('buy_package.update');
 
+    Route ::post('/buy_package', 'BuyPackageController@store')
+    ->name('buy_package.store');
+
+
     //----------------------packages -------------------------//
     Route::get('/package', 'PackageController@index')
     ->name('package.index');
@@ -207,10 +211,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route ::get('/userweb','UsersController@index')
     ->name('userweb.index');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 08f5f3ef0a55758752ba5520534260fd3c8878ef
     Route::get('/userweb/create', 'UsersController@create')
     ->name('userweb.create');
 
@@ -233,15 +233,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-<<<<<<< HEAD
 //__________revenue--------------------
 Route ::get('/revenue','RevenueController@index')
     ->name('revenue.index');
   //  _____________________________________________
-=======
-
-//__________
->>>>>>> 08f5f3ef0a55758752ba5520534260fd3c8878ef
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
