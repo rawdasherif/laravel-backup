@@ -41,6 +41,11 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
         {
+            // if(auth()->user()['banned_at']!=Null)
+            // {
+            //     //dd("hello");
+            //     return redirect('/login');
+            // }
           $user=auth()->user()['role'];
            
           if ($user=="admin")

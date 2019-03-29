@@ -84,6 +84,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::DELETE('/gymmanager/{gymmanager}','GymManagerController@destroy')
     ->name('gymmanager.destroy');
 
+    //ban and unban
+
+    Route::get('/Revoke/{id}', 'GymManagerController@revoke');
+
+    Route::get('/Ban/{id}', 'GymManagerController@ban');
+
     //---------------------------
     Route ::get('/gym', 'GymsController@index')
     ->name('gym.index');
@@ -201,7 +207,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route ::get('/userweb','UsersController@index')
     ->name('userweb.index');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 08f5f3ef0a55758752ba5520534260fd3c8878ef
     Route::get('/userweb/create', 'UsersController@create')
     ->name('userweb.create');
 
@@ -218,13 +227,57 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route ::get('/userweb/get_userwebdata','UsersController@get_userwebdata');
 
+    //-------------revenue-----------------
+    Route ::get('/revenue','RevenueController@index')
+    ->name('revenue.index');
+
 });
 
+<<<<<<< HEAD
 //__________revenue--------------------
 Route ::get('/revenue','RevenueController@index')
     ->name('revenue.index');
   //  _____________________________________________
+=======
+
+//__________
+>>>>>>> 08f5f3ef0a55758752ba5520534260fd3c8878ef
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//-----------
+
+
+Route::group(['middleware' =>  'logs-out-banned-user'], function () {
+    Route ::get('/gymmanager', 'GymManagerController@index')
+    ->name('gymmanager.index');
+
+    Route ::get('gymmanager/get_gymmanagerdata','GymManagerController@get_gymmanagerdata');
+
+    Route ::get('gymmanager/create', 'GymManagerController@create')
+    ->name('gymmanager.create');
+
+    Route ::post('/gymmanager', 'GymManagerController@store')
+    ->name('gymmanager.store');
+
+    Route ::get('/gymmanager/{gymmanager}/edit','GymManagerController@edit')
+    ->name('gymmanager.edit');
+
+    Route ::patch('/gymmanager/{gymmanager}','GymManagerController@update')
+    ->name('gymmanager.update');
+
+    Route::DELETE('/gymmanager/{gymmanager}','GymManagerController@destroy')
+    ->name('gymmanager.destroy');
+
+    //ban and unban
+
+    Route::get('/Revoke/{id}', 'GymManagerController@revoke');
+
+    Route::get('/Ban/{id}', 'GymManagerController@ban');
+    Route::get('/home', function () {
+        return view('home');
+    });
+
+});
 
