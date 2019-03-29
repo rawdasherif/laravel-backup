@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePackageHistoryTable extends Migration
+class CreateSalesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePackageHistoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('package_history', function (Blueprint $table) {
+        Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->unsignedbigInteger('user_id')->nullable();
@@ -33,6 +33,6 @@ class CreatePackageHistoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('package_history');
+        Schema::dropIfExists('sales');
     }
 }

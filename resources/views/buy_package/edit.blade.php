@@ -12,6 +12,12 @@
 @csrf
 {{ method_field('PATCH')}}
   <div class="form-group">
+  <label for="exampleInputEmail1" >This package is:</label>
+  <select  id="exampleFormControlSelect1" name="package_id">
+    <option value="{{$buy_package->id}}">{{$buy_package->name}}</option>
+    </select>
+    <br><br>
+
     <label for="exampleInputEmail1" >User Name:</label>
     <select  id="exampleFormControlSelect1" name="user_id">
     @foreach ($Users as $User)
@@ -34,7 +40,7 @@
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_0ybeJtUNQwtYglVVps4q24bu00QhnyrD2v"
-    data-amount="999"
+    data-amount="{{$buy_package->price}}"
     data-name="Demo Site"
     data-description="Example charge"
     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Package;
 use App\User;
 use App\Gym;
+use App\Sale;
 use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\Datatables;
 use Stripe\Stripe;
@@ -50,17 +51,26 @@ class BuyPackageController extends Controller
 
         Stripe::setApiKey("sk_test_01KGr7o8QH5AP7PQndnvdChW00iqUXU4RS");
         $token = $request->stripeToken;
-        //$package=Package::find($request->package_id);
-        //$currency = $package->price;
-    
+        $package=Package::find($buy_package)->first();
+        $price = $package->price;
+
         $charge = \Stripe\Charge::create([
-            'amount' => 333,
+            'amount' => $price,
             'currency' => 'usd',
             'description' => 'Example charge',
             'source' => $token,
         ]);
             
-
+         //dd($charge->amount);
+        if ($charge->status=="succeeded"){
+            Sale::create([
+               'user_id'=> request()->all()['user_id'],
+               'gym_id'=> request()->all()['gym_id'],
+               'package_id'=> request()->all()['package_id'],
+               'price'=>$charge->amount,
+            ]);
+   
+        }
         return redirect()->route('buy_package.index');
 
     }
